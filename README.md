@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project focuses on customer personality clustering using machine learning techniques. The goal is to analyze customer data and segment them into different groups based on their purchasing behavior, demographics, and other relevant features. The analysis helps businesses tailor their marketing strategies effectively.
+This project focuses on customer personality clustering using machine learning techniques, andt it was the graduation project of Samsung's Artificial Intelligence course. The goal is to analyze customer data and segment them into different groups based on their purchasing behavior, demographics, and other relevant features. The analysis helps businesses tailor their marketing strategies effectively.
 
 
 
@@ -20,14 +20,30 @@ The dataset used in this project is sourced from Kaggle: [Customer Personality A
 ## Project Structure
 
 - `customers-personality-clustering.ipynb`: Jupyter Notebook containing data preprocessing, exploratory data analysis (EDA), clustering, and evaluation.
-- `Customers Personality Clustering.pdf`: A detailed report covering the objectives, business questions, methodology, and findings of the project.
+- `Customers Personality Clustering.ppx`: A detailed report covering the objectives, business questions, methodology, and findings of the project.
 
 ## Methodology
 
 1. **Exploratory Data Analysis (EDA)**
 
    - Understanding the distribution of customer attributes.
+   - These are the questions i will try to answer by analyzing the data set in order to gain a greater understanding of the data and the relationship between them.
+     ![image](https://github.com/user-attachments/assets/ced22e67-17da-4a1b-ae74-92fbc1ba81f0)
    - Analyzing relationships between different features.
+   - These some images from notebook it display the relationship between some features:
+     ![image](https://github.com/user-attachments/assets/3c0be0fc-e087-4a24-9816-c2bb6e285091)
+     ![image](https://github.com/user-attachments/assets/ee319032-6b0d-4d60-92da-22a8486ba004)
+     ![image](https://github.com/user-attachments/assets/ba184559-4136-4bde-9fab-4fe06093f72a)
+     ![image](https://github.com/user-attachments/assets/61797a9b-b767-4f49-99e7-d019515ff151)
+     ![image](https://github.com/user-attachments/assets/520c9cfc-c674-4e69-9806-881db93d427d)
+
+
+
+
+
+
+
+
 
 
 
