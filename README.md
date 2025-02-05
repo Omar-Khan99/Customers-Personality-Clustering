@@ -50,7 +50,17 @@ The dataset used in this project is sourced from Kaggle: [Customer Personality A
 2. **Data Preprocessing**
 
    - Handling missing values and outliers.
-   - Encoding categorical variables and scaling numerical features.
+   - Encoding categorical variables and scaling numerical features,
+     ```python
+LE=LabelEncoder()
+for i in object_cols:
+    object_le=LE
+    data[i]=object_le.fit_transform(data[i])
+for i in category_col:
+    category_le=LE
+    data[i]=category_le.fit_transform(data[i])
+```
+   - Added some new features based on original features and combine some other
    - Applying Principal Component Analysis (PCA) for dimensionality reduction.
 
 3. **Clustering Models**
