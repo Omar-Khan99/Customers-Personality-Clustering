@@ -50,23 +50,74 @@ The dataset used in this project is sourced from Kaggle: [Customer Personality A
 2. **Data Preprocessing**
 
    - Handling missing values and outliers.
-   - Encoding categorical variables and scaling numerical features,
-     ```python
+   - Encoding categorical variables and scaling numerical features:
+```python
 LE=LabelEncoder()
 for i in object_cols:
     object_le=LE
     data[i]=object_le.fit_transform(data[i])
 for i in category_col:
     category_le=LE
-    data[i]=category_le.fit_transform(data[i])
+    data[i]=category_le.fit_transform(data[i]) 
 ```
-   - Added some new features based on original features and combine some other
-   - Applying Principal Component Analysis (PCA) for dimensionality reduction.
+```python
+scaled=StandardScaler()
+scaled.fit(ds)
+scaled_ds = pd.DataFrame(scaled.transform(ds),columns= ds.columns )
+```
+
+   - Added some new features based on original features and combine some other:
+```python
+# We will classify the number of purchases into more than one category
+s=5
+name_class=[]
+for i in range(12):
+    t='class ' + str(i) +" : ("+str(s)+ ", " +str(s+210) +')'
+    name_class.append(t)
+    s=s+210
+inter=[5,215,425,635,845,1055,1265,1475,1685,1895,2105,2315,2525]
+data['purchase_quantity']=pd.cut(data['total_purchases'],bins=inter,labels=name_class)
+```
+   - Applying Principal Component Analysis (PCA) for dimensionality reduction:
+```python
+# Using PCA to reduce the dimensions of the data to 3 dimensions
+pca = PCA(n_components=3)
+pca.fit(scaled_ds)
+PCA_ds = pd.DataFrame(pca.transform(scaled_ds), columns=(["col1","col2", "col3"]))
+PCA_ds.describe().T
+```     
 
 3. **Clustering Models**
 
    - Using the Elbow method to determine the optimal number of clusters.
+   ```python
+   Elbow_M = KElbowVisualizer(KMeans(), k=10)
+   Elbow_M.fit(PCA_ds)
+   Elbow_M.show()
+   ```
+   ![image](https://github.com/user-attachments/assets/901d7fec-e36b-4b86-93b6-e2b4b1773e64)
    - Applying **Agglomerative Clustering** and **K-Means Clustering**.
+     **Agglomerative Clustering**:
+     ```python
+     #Initiating the Agglomerative Clustering model 
+     AC = AgglomerativeClustering(n_clusters=4)
+     # fit model and predict clusters
+     yhat_AC = AC.fit_predict(PCA_AC)
+     PCA_AC["Clusters"] = yhat_AC
+     #Adding the Clusters feature to the orignal dataframe.
+     data_AC["Clusters"]= yhat_AC
+     ```
+     **K-Means Clustering**
+     ```python
+     #Initiating the K-Means model
+     KM = KMeans(n_clusters=4)
+     # fit model and predict clusters
+     yhat_KM = KM.fit_predict(PCA_KM)
+     PCA_KM["Clusters"] = yhat_KM
+     #Adding the Clusters feature to the orignal dataframe.
+     data_KM["Clusters"]= yhat_KM
+     ```
+     
 
 
 
@@ -74,6 +125,9 @@ for i in category_col:
 
    - Visualizing cluster distributions and feature relationships.
    - Assessing the effectiveness of clustering results.
+     ![image](https://github.com/user-attachments/assets/d2eda0dc-af87-4341-958d-0e2cc28b4ff0)
+     ![image](https://github.com/user-attachments/assets/c3b279f9-0b10-4412-95cb-6d1e70b90f49)
+
 
 ## Key Findings
 
@@ -82,14 +136,6 @@ for i in category_col:
 - Promotional campaigns had a low success rate, with 80% of customers not accepting offers.
 - Customers who visited the website frequently were more likely to make purchases online.
 
-## Dependencies
-
-To run the Jupyter Notebook, install the required dependencies using:
-
-```bash
-pip install -r requirements.txt
-```
-
 ## Usage
 
 1. Open the Jupyter Notebook:
@@ -97,6 +143,9 @@ pip install -r requirements.txt
    jupyter notebook customers-personality-clustering.ipynb
    ```
 2. Run the notebook cells sequentially to process the data and generate clusters.
+
+##use Interface
+Can open website and try the model
 
 ## Conclusion
 
