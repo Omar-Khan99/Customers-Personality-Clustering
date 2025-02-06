@@ -97,7 +97,8 @@ PCA_ds.describe().T
    ```
    ![image](https://github.com/user-attachments/assets/901d7fec-e36b-4b86-93b6-e2b4b1773e64)
    - Applying **Agglomerative Clustering** and **K-Means Clustering**.
-     **Agglomerative Clustering**:
+     
+     **Agglomerative Clustering**
      ```python
      #Initiating the Agglomerative Clustering model 
      AC = AgglomerativeClustering(n_clusters=4)
