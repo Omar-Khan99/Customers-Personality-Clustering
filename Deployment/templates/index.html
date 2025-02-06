@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMeans Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>KMeans Customer Prediction</h1>
+        
+        <!-- Form to collect user input -->
+        <form method="POST">
+            <label for="Education">Education:</label>
+            <select name="Education" id="Education">
+                <option value="2n Cycle">2n Cycle</option>
+                <option value="Basic">Basic</option>
+                <option value="Graduation">Graduation</option>
+                <option value="Master">Master</option>
+                <option value="PhD">PhD</option>
+            </select>
+            <br><br>
+
+            <label for="Income">Income:</label>
+            <input type="text" id="Income" name="Income" required>
+            <br><br>
+
+            <label for="Recency">Recency:</label>
+            <input type="text" id="Recency" name="Recency" required>
+            <br><br>
+
+            <label for="MntWines">Wines:</label>
+            <input type="text" id="MntWines" name="MntWines" required>
+            <br><br>
+
+            <label for="MntFruits">Fruits:</label>
+            <input type="text" id="MntFruits" name="MntFruits" required>
+            <br><br>
+
+            <label for="MntMeatProducts">Meat:</label>
+            <input type="text" id="MntMeatProducts" name="MntMeatProducts" required>
+            <br><br>
+
+            <label for="MntFishProducts">Fish:</label>
+            <input type="text" id="MntFishProducts" name="MntFishProducts" required>
+            <br><br>
+
+            <label for="MntSweetProducts">Sweet:</label>
+            <input type="text" id="MntSweetProducts" name="MntSweetProducts" required>
+            <br><br>
+
+            <label for="Kidhome">Kids at home:</label>
+            <input type="text" id="Kidhome" name="Kidhome" required>
+            <br><br>
+
+            <label for="Teenhome">Teens at home:</label>
+            <input type="text" id="Teenhome" name="Teenhome" required>
+            <br><br>
+
+            <label for="MntGoldProds">Gold Purchases:</label>
+            <input type="text" id="MntGoldProds" name="MntGoldProds" required>
+            <br><br>
+
+            <label for="NumDealsPurchases">Number of Deals Purchases:</label>
+            <input type="text" id="NumDealsPurchases" name="NumDealsPurchases" required>
+            <br><br>
+
+            <label for="NumWebPurchases">Number of Web Purchases:</label>
+            <input type="text" id="NumWebPurchases" name="NumWebPurchases" required>
+            <br><br>
+
+            <label for="NumCatalogPurchases">Number of Catalog Purchases:</label>
+            <input type="text" id="NumCatalogPurchases" name="NumCatalogPurchases" required>
+            <br><br>
+
+            <label for="NumStorePurchases">Number of Store Purchases:</label>
+            <input type="text" id="NumStorePurchases" name="NumStorePurchases" required>
+            <br><br>
+
+            <label for="NumWebVisitsMonth">Number of Web Visits per Month:</label>
+            <input type="text" id="NumWebVisitsMonth" name="NumWebVisitsMonth" required>
+            <br><br>
+
+            <label for="Customer_From_days">Customer's days from registration:</label>
+            <input type="text" id="Customer_From_days" name="Customer_From_days" required>
+            <br><br>
+
+            <label for="Age">Age:</label>
+            <input type="text" id="Age" name="Age" required>
+            <br><br>
+
+            <label for="Family_Size">Family Size:</label>
+            <input type="text" id="Family_Size" name="Family_Size" required>
+            <br><br>
+
+            <label for="Total_Promos">Total Promotions:</label>
+            <input type="text" id="Total_Promos" name="Total_Promos" required>
+            <br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Prediction Result -->
+        {% if prediction is not none %}
+        <h2>Prediction:</h2>
+        <p>The model predicts that the input features belong to cluster: <strong>{{ prediction }}</strong></p>
+        {% endif %}
+    </div>
+</body>
+</html>
