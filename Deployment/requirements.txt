@@ -1,0 +1,7 @@
+Flask
+numpy
+scikit-learn
+joblib
+pickle-mixin
+bz2file
+gunicorn
