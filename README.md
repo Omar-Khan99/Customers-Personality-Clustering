@@ -137,15 +137,18 @@ PCA_ds.describe().T
 - Customers who visited the website frequently were more likely to make purchases online.
 
 ## Usage
+1. **The first method**
+   1. Open the Jupyter Notebook:
+      ```bash
+      jupyter notebook customers-personality-clustering.ipynb
+      ```
+   2. Run the notebook cells sequentially to process the data and generate clusters.
+   3. Then can you train the model with any data you want.
+   
+2. **The second method**
+   1. You can use the Deployment file to try out the model.
+   2. Just download the files and run the app file. 
 
-1. Open the Jupyter Notebook:
-   ```bash
-   jupyter notebook customers-personality-clustering.ipynb
-   ```
-2. Run the notebook cells sequentially to process the data and generate clusters.
-
-##use Interface
-Can open website and try the model
 
 ## Conclusion
 
