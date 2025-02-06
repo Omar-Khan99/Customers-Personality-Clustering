@@ -137,6 +137,15 @@ PCA_ds.describe().T
 - Promotional campaigns had a low success rate, with 80% of customers not accepting offers.
 - Customers who visited the website frequently were more likely to make purchases online.
 
+
+## Dependencies
+
+To run the app.py, install the required dependencies using:
+```bash
+pip install -r requirements.txt
+```
+
+
 ## Usage
 1. **The first method**
    1. Open the Jupyter Notebook:
